@@ -56,7 +56,7 @@ document.getElementById('startStream').addEventListener('click', () => {
 
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
-      canvas.width = 640; 
+      canvas.width = 640;
       canvas.height = 360;
 
       // Function to capture the frame and send it with location data
@@ -79,13 +79,14 @@ document.getElementById('startStream').addEventListener('click', () => {
             imageData: dataUrl.split(',')[1], // Only send the base64 part of the image
             location: location
           });
+          console.log("frame sent");
         }, (error) => {
           console.error('Error getting location:', error);
         });
       };
 
       // Capture frames at a specified interval (e.g., 1 second)
-      const frameInterval = setInterval(captureFrame, 1000);
+      const frameInterval = setInterval(captureFrame, 100);
 
       // Stop capturing when the user disconnects
       socket.on('disconnect', () => {

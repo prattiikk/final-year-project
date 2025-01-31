@@ -81,6 +81,8 @@ io.on('connection', (socket) => {
     const imageFilePath = path.join(imagesDir, imageFilename);
     const locationFilePath = path.join(locationDir, locationFilename);
 
+    console.log("frames coming")
+
     // Save the image
     if (data.imageData) {
       const buffer = Buffer.from(data.imageData, 'base64');
